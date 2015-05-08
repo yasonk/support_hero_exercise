@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'schedule' => 'schedule#index'
   get 'schedule/users/:id/' => 'schedule#user_schedule'
   get 'schedule/todays-hero' => 'schedule#todays_hero'
+  put 'schedule/assign-duty' => 'schedule#assign_duty'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

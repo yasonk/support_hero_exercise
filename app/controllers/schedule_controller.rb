@@ -1,8 +1,19 @@
 class ScheduleController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   #used for swapping
-  def assign_duty user, date
+  def assign_duty
+    respond_to do |format|
+      user = User.where(name: params[:user]).first
+      user.support_assignments.create date: params[:date].to_date
 
+      format.html do
+        flash[:notice] = "Duty succesfully assigned."
+        render 'schedule/index'
+      end
+
+
+    end
   end
 
   #shows full schedule

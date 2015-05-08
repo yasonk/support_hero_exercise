@@ -34,4 +34,13 @@ describe ScheduleController, type: :controller do
       expect(assigns(:schedule).user.name).to eq 'Yason'
     end
   end
+
+  describe 'PUT #assign_duty' do
+    it 'assigns user to specified date' do
+      user = User.where(name: 'Yason').first
+      put :assign_duty, {user: user.name, date: 10.days.from_now.to_date}
+      user.reload
+      expect(user.support_assignments.count).to be 4
+    end
+  end
 end
