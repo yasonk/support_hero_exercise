@@ -2,7 +2,11 @@ class User < ActiveRecord::Base
   has_many :support_assignments, :dependent => :destroy
 
   def available? date
-    nil
+    date != unavailable_date
+  end
+
+  def to_param
+    name
   end
 
   def schedule

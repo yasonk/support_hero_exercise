@@ -22,17 +22,4 @@ describe User do
       end
     end
   end
-
-  describe '#schedule' do
-    context 'when the user has 3 scheduled support assignments' do
-      before do
-        3.times do| i |
-          user.support_assignments.create date: (Date.today + i)
-        end
-      end
-      it 'returns exactly 3 assignments' do
-        expect(user.schedule.count).to be 3
-      end
-    end
-  end
 end

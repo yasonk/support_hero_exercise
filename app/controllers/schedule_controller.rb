@@ -7,14 +7,16 @@ class ScheduleController < ApplicationController
 
   #shows full schedule
   def index
-    @schedule = []
+    @schedule = SupportAssignment.all.to_a
   end
 
   def todays_hero
 
   end
 
-  def user_schedule user
-
+  def user_schedule
+    user = User.where(name: params[:id]).first
+    @schedule = SupportAssignment.where(user_id: user.id).to_a
+    render :index
   end
 end
