@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-describe User do
+describe SupportAssignment do
 
   let!(:user) { User.create name: 'Yason' }
+  let!(:assignment) { SupportAssignment.create date: Date.today, user_id: user.id}
 
   describe '#available?' do
     context 'when the user is available for all dates' do
