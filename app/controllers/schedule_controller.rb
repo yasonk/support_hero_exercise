@@ -7,7 +7,7 @@ class ScheduleController < ApplicationController
 
   #shows full schedule
   def index
-
+    @schedule = []
   end
 
   def todays_hero
