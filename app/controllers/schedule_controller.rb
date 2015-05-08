@@ -11,7 +11,8 @@ class ScheduleController < ApplicationController
   end
 
   def todays_hero
-
+    @schedule = SupportAssignment.where(date: Date.today).first
+    render :todays_hero
   end
 
   def user_schedule

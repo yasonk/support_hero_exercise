@@ -27,4 +27,11 @@ describe ScheduleController, type: :controller do
       expect(assigns(:schedule).count).to eq 3
     end
   end
+
+  describe 'GET #todays_hero' do
+    it 'responds with the name of the person on duty today' do
+      get :"todays_hero"
+      expect(assigns(:schedule).user.name).to eq 'Yason'
+    end
+  end
 end
