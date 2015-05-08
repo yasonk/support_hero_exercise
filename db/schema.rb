@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507212740) do
+ActiveRecord::Schema.define(version: 20150508003101) do
 
   create_table "support_assignments", force: :cascade do |t|
     t.date     "date"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20150507212740) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.date     "unavailable_date"
   end
 
 end
