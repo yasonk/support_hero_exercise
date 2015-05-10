@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     support_assignments.select{ |assignment| assignment.date.future? }.first
   end
 
+  def self.available_users date
+    User.where(unavailable_date: nil) | User.where.not(unavailable_date: date)
+  end
+
   private
 
   def reconcile_schedule_conflicts date
@@ -35,7 +39,5 @@ class User < ActiveRecord::Base
     future_assignment.destroy
   end
 
-  def available_users date
-    User.where(unavailable_date: nil) | User.where.not(unavailable_date: date)
-  end
+
 end

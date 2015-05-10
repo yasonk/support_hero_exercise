@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.collection_select(:user_id, Schedule.new.available_users(@support_assignment.date), :id, :name)  %>
+    <%= f.collection_select(:user_id, User.available_users(@support_assignment.date), :id, :name)  %>
   </div>
   <div class="actions">
     <%= f.submit %>
