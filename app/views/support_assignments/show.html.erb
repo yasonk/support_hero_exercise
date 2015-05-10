@@ -7,8 +7,8 @@
 
 <p>
   <strong>User:</strong>
-  <%= @support_assignment.user_id %>
+  <%= @support_assignment.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_support_assignment_path(id: @support_assignment.id) %> |
+<%= link_to 'Edit', edit_user_support_assignment_path(user_id: @support_assignment.user_id, id: @support_assignment.id) %> |
 <%= link_to 'Back', user_support_assignments_path(@support_assignment.user) %>

@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     resources :support_assignments
   end
 
-
-
-  get 'schedule' => 'schedule#index'
-  get 'schedule/todays-hero' => 'schedule#todays_hero'
-  put 'schedule/assign-duty' => 'schedule#assign_duty'
+  resource :support_assignments, only: [:new, :create, :index] do
+    get 'today'
+    get 'all'
+    # get 'month/:number'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

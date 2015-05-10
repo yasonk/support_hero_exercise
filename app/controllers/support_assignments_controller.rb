@@ -28,7 +28,7 @@ class SupportAssignmentsController < ApplicationController
 
     respond_to do |format|
       if @support_assignment.save
-        format.html { redirect_to @support_assignment, notice: 'Support assignment was successfully created.' }
+        format.html { redirect_to [@support_assignment.user, @support_assignment], notice: 'Support assignment was successfully created.' }
         format.json { render :show, status: :created, location: @support_assignment }
       else
         format.html { render :new }
@@ -59,6 +59,16 @@ class SupportAssignmentsController < ApplicationController
       format.html { redirect_to support_assignments_url, notice: 'Support assignment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def today
+    @support_assignment = SupportAssignment.where(date: Date.today).first
+    render :show
+  end
+
+  def all
+    @support_assignments = SupportAssignment.all.order :date
+    render :index
   end
 
   private
