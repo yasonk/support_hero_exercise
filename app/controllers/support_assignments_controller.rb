@@ -42,7 +42,7 @@ class SupportAssignmentsController < ApplicationController
   def update
     respond_to do |format|
       if @support_assignment.update(support_assignment_params)
-        format.html { redirect_to @support_assignment, notice: 'Support assignment was successfully updated.' }
+        format.html { redirect_to [@support_assignment.user, @support_assignment], notice: 'Support assignment was successfully updated.' }
         format.json { render :show, status: :ok, location: @support_assignment }
       else
         format.html { render :edit }

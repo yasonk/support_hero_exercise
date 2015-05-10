@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @support_assignment %> |
-<%= link_to 'Back', support_assignments_path %>
+<%= link_to 'Show', [@support_assignment.user, @support_assignment] %> |
+<%= link_to 'Back', user_support_assignments_path(@support_assignment.user) %>

@@ -14,17 +14,15 @@ class Schedule
   end
 
   def replace_assignment assignment
-    future_assignment = available_user(assignment.date).future_assignment
+    future_assignment = available_users(assignment.date).first.future_assignment
     assignment.user.assign_duty future_assignment.date
     available_user.assign_duty assignment.date
     assignment.destroy
     future_assignment.destroy
   end
 
-  private
-
-  def available_user date
-    User.where.not(unavailable_date: date).first
+  def available_users date
+    User.where(unavailable_date: nil) | User.where.not(unavailable_date: date)
   end
 
 end

@@ -10,5 +10,5 @@
   <%= @support_assignment.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_support_assignment_path(@support_assignment) %> |
-<%= link_to 'Back', support_assignments_path %>
+<%= link_to 'Edit', edit_user_support_assignment_path(id: @support_assignment.id) %> |
+<%= link_to 'Back', user_support_assignments_path(@support_assignment.user) %>
