@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schedule</h1>
+<h1><%=Time.now.strftime '%B' %> Schedule</h1>
+
+<% @schedule.each do | assignment | %>
+    <%= assignment.date %>, Support Hero: <%= assignment.user.name %> </br>
+<% end %>
 
 

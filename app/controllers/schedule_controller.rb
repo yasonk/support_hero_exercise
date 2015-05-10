@@ -1,34 +1,37 @@
 class ScheduleController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   #used for swapping
   def assign_duty
+    date = params[:date].to_date
     respond_to do |format|
       user = User.where(name: params[:user]).first
-      user.support_assignments.create date: params[:date].to_date
+      if user.available? date
+        user.assign_duty date
 
-      format.html do
-        flash[:notice] = "Duty succesfully assigned."
-        render 'schedule/index'
+        format.html do
+          @schedule = Schedule.new.full_schedule
+          render 'schedule/index'
+        end
+      else
+        format.html do
+          render :html => "#{user.name} is not available on #{date}" and return
+        end
       end
-
-
     end
   end
 
   #shows full schedule
   def index
-    @schedule = SupportAssignment.all.to_a
+    @schedule = Schedule.new.full_schedule
   end
 
   def todays_hero
-    @schedule = SupportAssignment.where(date: Date.today).first
+    @schedule = Schedule.new.assignment_for_date Date.today
     render :todays_hero
   end
 
   def user_schedule
-    user = User.where(name: params[:id]).first
-    @schedule = SupportAssignment.where(user_id: user.id).to_a
+    @schedule = Schedule.new.user_schedule params[:id]
     render :index
   end
 end
