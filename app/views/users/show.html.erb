@@ -10,5 +10,6 @@
   <%= @user.unavailable_date %>
 </p>
 
+<%= link_to 'Support Assignments', user_support_assignments_path(@user) %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

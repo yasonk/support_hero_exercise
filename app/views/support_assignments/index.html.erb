@@ -16,9 +16,9 @@
       <tr>
         <td><%= support_assignment.date %></td>
         <td><%= support_assignment.user_id %></td>
-        <td><%= link_to 'Show', support_assignment %></td>
-        <td><%= link_to 'Edit', edit_support_assignment_path(support_assignment) %></td>
-        <td><%= link_to 'Destroy', support_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [support_assignment.user, support_assignment] %></td>
+        <td><%= link_to 'Edit', edit_user_support_assignment_path(id: support_assignment.id) %></td>
+        <td><%= link_to 'Destroy', [support_assignment.user, support_assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Support assignment', new_support_assignment_path %>
+<%= link_to 'New Support assignment', new_user_support_assignment_path %>

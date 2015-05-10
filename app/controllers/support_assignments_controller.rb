@@ -4,7 +4,7 @@ class SupportAssignmentsController < ApplicationController
   # GET /support_assignments
   # GET /support_assignments.json
   def index
-    @support_assignments = SupportAssignment.all
+    @support_assignments = SupportAssignment.where user_id: params[:user_id]
   end
 
   # GET /support_assignments/1

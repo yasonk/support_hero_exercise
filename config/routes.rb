@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :support_assignments
-  resources :users
+  resources :users do
+    resources :support_assignments
+  end
+
+
 
   get 'schedule' => 'schedule#index'
-  get 'schedule/users/:id/' => 'schedule#user_schedule'
   get 'schedule/todays-hero' => 'schedule#todays_hero'
   put 'schedule/assign-duty' => 'schedule#assign_duty'
 
