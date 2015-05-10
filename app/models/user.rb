@@ -23,7 +23,19 @@ class User < ActiveRecord::Base
   def reconcile_schedule_conflicts date
     assignment_conflicts = support_assignments.select {|assignment| assignment.date == date}
     if assignment_conflicts.present?
-      Schedule.new.replace_assignment assignment_conflicts[0]
+      replace_assignment assignment_conflicts[0]
     end
+  end
+
+  def replace_assignment assignment
+    future_assignment = available_users(assignment.date).first.future_assignment
+    future_assignment.user.assign_duty assignment.date
+    assignment.user.assign_duty future_assignment.date
+    assignment.destroy
+    future_assignment.destroy
+  end
+
+  def available_users date
+    User.where(unavailable_date: nil) | User.where.not(unavailable_date: date)
   end
 end

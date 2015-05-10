@@ -15,7 +15,7 @@
     <% @support_assignments.each do |support_assignment| %>
       <tr>
         <td><%= support_assignment.date %></td>
-        <td><%= support_assignment.user_id %></td>
+        <td><%= support_assignment.user.name %></td>
         <td><%= link_to 'Show', [support_assignment.user, support_assignment] %></td>
         <td><%= link_to 'Edit', edit_user_support_assignment_path(user_id: support_assignment.user_id, id: support_assignment.id) %></td>
         <td><%= link_to 'Destroy', [support_assignment.user, support_assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
