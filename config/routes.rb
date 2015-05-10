@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :support_assignments, only: [:new, :create, :index] do
     get 'today'
     get 'all'
-    # get 'month/:number'
+    get 'month/:month' => 'support_assignments#month'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
