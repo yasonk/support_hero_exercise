@@ -1,23 +1,24 @@
 * Using ruby 2.1.4p265
 
-1. Database creation
+### Setup
+* Database creation
 ```
     rake db:migrate
     rake db:seed
 ```
 
-2. Running tests
+* Running tests
 ```
     rake db:test:prepare
     rake spec
 ```
 
-3. Start rails server
+* Start rails server
 ```
     rails server
 ```
 
-4. Features
+### Features
 **Displaying Today's Support Hero**
 /support_assignments/today – Displays the user who is assigned to be Support Hero today
 
@@ -37,7 +38,7 @@ Future attempts to assign a user to an unavailable date will result in error.
 users/:user_id/support_assignments/:support_assignment_id/edit – given a :user_id
 /users – starting with this url, click “Edit” to mark a date unavailable
 
-4. API specifications
+### API specifications
 
 Resource           |          Methods     |                URI                       | Description
 -------------------|----------------------|------------------------------------------|----------------------------------
