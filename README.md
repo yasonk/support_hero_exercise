@@ -1,12 +1,13 @@
 * Using ruby 2.1.4p265
 
 1. Database creation
+```
     rake db:migrate
-    rake db:seed
+    rake db:seed```
 
 2. Running tests
-    rake db:test:prepare
-    rake spec
+    *rake db:test:prepare
+    *rake spec
 
 3. Start rails server
     rails server
