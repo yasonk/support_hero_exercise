@@ -1,3 +1,5 @@
+## Welcome to Support Hero App
+
 * Using ruby 2.1.4p265
 
 ### Setup
