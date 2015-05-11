@@ -3,7 +3,8 @@
 1. Database creation
 ```
     rake db:migrate
-    rake db:seed```
+    rake db:seed
+```
 
 2. Running tests
     *rake db:test:prepare
