@@ -22,22 +22,22 @@
 ```
 
 ### Features
-**Displaying Today's Support Hero**
+**Displaying Today's Support Hero**<br>
 */support_assignments/today* – Displays the user who is assigned to be Support Hero today
 
-**Displaying a single user’s schedule**
+**Displaying a single user’s schedule**<br>
 */users* – this can be used to discover all users
 */users/{user_id}/support_assignments* – once a user's id is known, use it to display all the dates that user is assigned to Support Hero
 
-**Display the full schedule for all users in the current month**
+**Display the full schedule for all users in the current month**<br>
 */support_assignments/month/:month_number* – lists all the assignments for a given month. month_number ranges from 1(January) to 12(December)
 
-**Users should be able to mark one of their days on duty as unavailable**
+**Users should be able to mark one of their days on duty as unavailable**<br>
 */users* – starting with the /users URL, click “Edit” to mark a date unavailable.<br>
 When user has marked a date as unavailable, that user's Support Hero duty assignment is swapped with a user who is available on that date.
 Future attempts to assign a user to an unavailable date will result in error.
 
-**Users should be able to swap duty with another user’s specific day**
+**Users should be able to swap duty with another user’s specific day**<br>
 *users/:user_id/support_assignments/:id/edit* – when a :user_id is known, simply edit the support_assignment by changing the user name. Then locate the second user and edit one of his/her assignments in the similar fashion.
 
 
