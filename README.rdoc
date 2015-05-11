@@ -1,28 +1,29 @@
-== README
+* Using ruby 2.1.4p265
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Database creation
+    rake db:migrate
+    rake db:seed
 
-Things you may want to cover:
+2. Running tests
+    rake db:test:prepare
+    rake spec
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+3. Start rails server
+    rails server
 
 * Deployment instructions
 
-* ...
+
+* API specifications
+
+Resource |                    Methods    |           URI              | Description
+---------|-------------------------------|----------------------------|----------------------------------
+User     | GET, POST, PUT, PATCH, DELETE |http://host/users/{user_id} | Contains information about a User
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<table>
+    <th>Resource</th><th>Methods</th><th>URI</th><th>Description</th>
+    <tr>
+        <td>User</td><td>GET, POST, PUT, PATCH, DELETE</td><td>http://host/users/{user_id}</td><td>Contains information about a User</td>
+    </tr>
+</table>
