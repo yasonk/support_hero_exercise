@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :support_assignments, :dependent => :destroy
+  validates :name, presence: true
 
   def available? date
     date != unavailable_date
