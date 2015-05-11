@@ -1,8 +1,9 @@
 ## Welcome to Support Hero App
 
+### Setup
+
 * Using ruby 2.1.4p265
 
-### Setup
 * Database creation
 ```
     rake db:migrate
@@ -44,11 +45,11 @@ users/:user_id/support_assignments/:support_assignment_id/edit – given a :user
 
 Resource           |          Methods     |                URI                       | Description
 -------------------|----------------------|------------------------------------------|----------------------------------
-User               | GET                  | /users/{id}                              | <ul><li>Contains information about a User</li><li>{id} is Optional</li><li>.json to get json representation</li></ul>
-                   | PUT, PATCH, DELETE   | /users/{id}                              | <ul><li>Modify User information</li><li>Parameters: name, unavailable_date</li><li>Format: JSON</li></ul>
-                   | POST                 | /users                                   | <ul><li>Create new User</li><li>Parameters: name, unavailable_date</li><li>Format: JSON</li></ul>
-Support Assignments| GET                  | /support_assignments/{id}                | <ul><li>Contains information about a Support Assignments</li><li>{id} is Optional</li><li>.json to get json representation</li></ul>
-                   | GET                  | /users/{user_id}/support_assignments     | <ul><li>Lists all Support Assignments for a User</li><li>{user_id} is Requred</li><li>.json to get json representation</li></ul>
+User               | GET                  | /users/{id}                              | <ul><li>Contains information about a User</li><li>{id} is Optional</li><li>.json to get JSON representation</li></ul>
+                   | PUT, PATCH, DELETE   | /users/{id}.json                         | <ul><li>Modify User information</li><li>Header: Content-Type: application/json<br>Parameters: name, unavailable_date<br>Example: {"user":{"name":"User Name", "unavailable_date":"01-01-2015"}}</li></ul>
+                   | POST                 | /users.json                              | <ul><li>Create new User</li><li>Parameters: name, unavailable_date</li><li>Format: JSON</li><li>Example: {"user":{"name":"User Name", "unavailable_date":"01-01-2015"}}</ul>
+Support Assignments| GET                  | /support_assignments/                    | <ul><li>Contains information about a Support Assignments</li><li>{id} is Optional</li><li>.json to get JSON representation</li></ul>
+                   | GET                  | /users/{user_id}/support_assignments/{id}| <ul><li>Lists all Support Assignments for a User</li><li>{user_id} is Requred<br>{id} is Optional</li><li>.json to get json representation</li></ul>
                    | GET                  | /support_assignments/today<br>/support_assignments/month/{month} | <ul><li>Lists all Support Assignments for today and for a specified month number</li><li>.json to get json representation</li></ul>
                    | PUT, PATCH, DELETE   | /users/{user_id}/support_assignments/{id}| <ul><li>Support Assignments</li><li>Parameters: date</li><li>Format: JSON</li></ul>
                    | POST                 | /support_assignments                     | <ul><li>Create new Support Assignment</li><li>Parameters: user_id, date</li><li>Format: JSON</li></ul>
