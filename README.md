@@ -1,5 +1,9 @@
 ## Welcome to Support Hero App
 
+This software allows monitoring and management of a tech support team.
+Each team member is assigned multiple days that they are supposed to be on duty.
+Team members are allowed to opt out of a single day's duty by specifying the date they will be unavailable.
+
 ### Setup
 
 * Using ruby 2.1.4p265
@@ -55,3 +59,8 @@ Support Assignments| GET                  | /users/{user_id}/support_assignments
 
 
 
+### Upcoming Improvements
+
+* Improved Error Handling
+* Improved Test Coverage
+* Optimize performance: look for caching possibilities
