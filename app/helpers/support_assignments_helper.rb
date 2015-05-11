@@ -3,7 +3,7 @@ module SupportAssignmentsHelper
     if params[:user_id].present?
       link_to('New Support assignment', new_user_support_assignment_path)
     else
-      link_to('New Support assignment', new_support_assignments_path)
+      link_to('New Support assignment', new_support_assignment_path)
     end
   end
 

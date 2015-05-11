@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     resources :support_assignments
   end
 
-  resource :support_assignments, only: [:new, :create, :index] do
+  resources :support_assignments, only: [:new, :create, :index]
+  scope :support_assignments, :controller => 'support_assignments' do
     get 'today'
-    get 'all'
     get 'month/:month' => 'support_assignments#month'
   end
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'application#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

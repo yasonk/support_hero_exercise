@@ -4,7 +4,11 @@ class SupportAssignmentsController < ApplicationController
   # GET /support_assignments
   # GET /support_assignments.json
   def index
-    @support_assignments = SupportAssignment.where(user_id: params[:user_id]).order :date
+    if params[:user_id].present?
+      @support_assignments = SupportAssignment.where(user_id: params[:user_id]).order :date
+    else
+      @support_assignments = SupportAssignment.all.order :date
+    end
   end
 
   # GET /support_assignments/1
@@ -64,11 +68,6 @@ class SupportAssignmentsController < ApplicationController
   def today
     @support_assignment = SupportAssignment.where(date: Date.today).first
     render :show
-  end
-
-  def all
-    @support_assignments = SupportAssignment.all.order :date
-    render :index
   end
 
   def month
