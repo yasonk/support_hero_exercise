@@ -47,7 +47,7 @@ class SupportAssignmentsController < ApplicationController
     respond_to do |format|
       if @support_assignment.update(support_assignment_params)
         format.html { redirect_to [@support_assignment.user, @support_assignment], notice: 'Support assignment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @support_assignment }
+        format.json { render :show, status: :ok, location: [@support_assignment.user, @support_assignment] }
       else
         format.html { render :edit }
         format.json { render json: @support_assignment.errors, status: :unprocessable_entity }
