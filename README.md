@@ -16,14 +16,17 @@
 
 * API specifications
 
-Resource |                    Methods    |           URI              | Description
----------|-------------------------------|----------------------------|----------------------------------
-User     | GET, POST, PUT, PATCH, DELETE |http://host/users/{user_id} | Contains information about a User
+Resource |                    Methods    |                URI              | Description
+---------|-------------------------------|---------------------------------|----------------------------------
+User     | GET, POST, PUT, PATCH, DELETE |http://host/users/{user_id}      | Contains information about a User<br> {user_id} is Optional<br>.json to get json represenation
+
 
 
 <table>
     <th>Resource</th><th>Methods</th><th>URI</th><th>Description</th>
     <tr>
-        <td>User</td><td>GET, POST, PUT, PATCH, DELETE</td><td>http://host/users/{user_id}</td><td>Contains information about a User</td>
+        <td>User</td>
+        <td>GET, POST, PUT, PATCH, DELETE</td>
+        <td>http://host/users/{user_id}</td><td>Contains information about a User</td>
     </tr>
 </table>
