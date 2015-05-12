@@ -65,11 +65,15 @@ class SupportAssignmentsController < ApplicationController
     end
   end
 
+  # GET /support_assignments/today
+  # GET /support_assignments/today.json
   def today
     @support_assignment = SupportAssignment.where(date: Date.today).first
     render :show
   end
 
+  # GET /support_assignments/month/1
+  # GET /support_assignments/month/1.json
   def month
     @support_assignments = SupportAssignment.where("strftime('%m', date) + 0 = ?", params[:month].to_i).order :date
     render :index
