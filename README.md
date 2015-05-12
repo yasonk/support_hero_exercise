@@ -58,7 +58,15 @@ Support Assignments| GET                  | /users/{user_id}/support_assignments
                    | POST                 | /support_assignments.json                     | <ul><li>Create new Support Assignment</li><li>Header: Content-Type: application/json<br>Parameters: user_id, date.<br>Example:{"support_assignment":{"user_id":1, "date":"19-06-2015"}}</li></ul>
 
 
+### Class Diagrams
 
+####Models
+![alt text](https://github.com/yasonk/support_hero_exercise/tree/master/doc/models.png "Models")
+
+####Controllers
+![alt text](https://github.com/yasonk/support_hero_exercise/tree/master/doc/controllers.png "Controllers")
+
+###
 ### Upcoming Improvements
 
 * Improved Error Handling
