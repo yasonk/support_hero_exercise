@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   # Marks the user as unavailable for duty on the specified date.
   # If the user was assigned to duty on this date, another user swaps duty with this user.
   def unavailable_date= date
-    reconcile_schedule_conflicts date
-    write_attribute :unavailable_date, date
+    write_attribute(:unavailable_date, date) if reconcile_schedule_conflicts date
   end
 
   # Returns a support assignment for the user with the date in the future
@@ -31,20 +30,34 @@ class User < ActiveRecord::Base
 
   private
 
+  # Returns true if schedule was successfully reconciled. False otherwise
   def reconcile_schedule_conflicts date
     assignment_conflicts = support_assignments.select {|assignment| assignment.date == date}
     if assignment_conflicts.present?
       replace_assignment assignment_conflicts[0]
+    else
+      true
     end
   end
 
+  # Returns true if replacement was successful. Otherwise returns false.
   def replace_assignment assignment
-    future_assignment = available_users(assignment.date).first.future_assignment
-    future_assignment.user.assign_duty assignment.date
-    assignment.user.assign_duty future_assignment.date
+    backup = another_user(User.available_users assignment.date)
+    return false if backup.blank?
+
+    future_assignment = backup.future_assignment
+    self.assign_duty future_assignment.date
+    backup.assign_duty assignment.date
     assignment.destroy
     future_assignment.destroy
+    true
   end
 
+  def another_user users
+    users.reject{| user | user.id == self.id}.first
+  end
 
+  def another_user_available? date
+    another_user(User.available_users date).present?
+  end
 end
