@@ -71,4 +71,6 @@ Support Assignments| GET                  | /users/{user_id}/support_assignments
 
 * Improved Error Handling
 * Improved Test Coverage
+* Make API less chatty, especially the swap assignment date feature
+* Introduce versioning
 * Optimize performance: look for caching possibilities
