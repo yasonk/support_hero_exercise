@@ -61,8 +61,7 @@ Support Assignments| GET                  | /users/{user_id}/support_assignments
 ### Class Diagrams
 
 ####Models
-![Image of models]
-(https://github.com/yasonk/support_hero_exercise/tree/master/doc/models.png)
+![Image of models](https://raw.githubusercontent.com/yasonk/support_hero_exercise/master/doc/models.png)
 
 ####Controllers
 ![alt text](https://github.com/yasonk/support_hero_exercise/tree/master/doc/controllers.png "Controllers")
