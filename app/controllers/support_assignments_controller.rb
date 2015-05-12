@@ -75,7 +75,9 @@ class SupportAssignmentsController < ApplicationController
   # GET /support_assignments/month/1
   # GET /support_assignments/month/1.json
   def month
-    @support_assignments = SupportAssignment.where("strftime('%m', date) + 0 = ?", params[:month].to_i).order :date
+    first_of_month = Date.new Date.today.year, params[:month].to_i, 1
+    end_of_month = first_of_month.end_of_month
+    @support_assignments = SupportAssignment.where(date: first_of_month..end_of_month).order :date
     render :index
   end
 
