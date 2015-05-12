@@ -58,13 +58,22 @@ Support Assignments| GET                  | /users/{user_id}/support_assignments
                    | POST                 | /support_assignments.json                     | <ul><li>Create new Support Assignment</li><li>Header: Content-Type: application/json<br>Parameters: user_id, date.<br>Example:{"support_assignment":{"user_id":1, "date":"19-06-2015"}}</li></ul>
 
 
-### Class Diagrams
+### Developer Documentation
+
+The main pattern utilized is the MVC design pattern. The different routes are mapped to the public methods in the controllers.
+The controllers' actions allow to retrieve and modify the application resources.
+The routes and controllers are intended to allow both a Web UI interface and a RESTful API interface.
+*User* and *SupportAssignment* classes represent the resources.
+
+
+For details about each class browse the developer documentation located at /doc/index.html
 
 ####Models
 ![Class Diagram for Models](https://raw.githubusercontent.com/yasonk/support_hero_exercise/master/doc/models.png)
 
 ####Controllers
 ![Class Diagram for Controllers](https://raw.githubusercontent.com/yasonk/support_hero_exercise/master/doc/controllers.png)
+
 
 ###
 ### Upcoming Improvements
