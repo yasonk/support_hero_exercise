@@ -1,3 +1,5 @@
+# Obsolete
+
 ## Welcome to Support Hero App
 
 This software allows monitoring and management of a tech support team.
